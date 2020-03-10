@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 /**
- * binary_tree_delete - function that deletes an entire binary tree
+ * binary_tree_preorder - function that deletes an entire binary tree
  * @tree: pointer to root of the tree.
  * @func: pointer to function to print
  * Return: nothing.
