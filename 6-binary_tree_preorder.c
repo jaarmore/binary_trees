@@ -2,8 +2,9 @@
 /**
  * binary_tree_delete - function that deletes an entire binary tree
  * @tree: pointer to root of the tree.
+ * @func: pointer to function to print
  * Return: nothing.
-*/
+ */
 void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int))
 {
 	if (!tree || !func)
