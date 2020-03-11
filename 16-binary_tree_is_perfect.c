@@ -1,19 +1,35 @@
 #include "binary_trees.h"
 /**
- * binary_tree_depth - function that measures the depth of a binary tree.
+ * depth - function that measures the depth of a binary tree.
  * @tree: the root of the tree.
  * Return: the measure of the node.
  */
-size_t binary_tree_depth(const binary_tree_t *tree)
+int depth(const binary_tree_t *tree)
 {
-        size_t deeper = 0;
+	int deeper = 0;
 
-        if (!tree)
-                return (0);
-
-        if (tree->parent)
-                deeper = 1 + binary_tree_depth(tree->parent);
-        return (deeper);
+	while (tree)
+	{
+		deeper++;
+		tree = tree->left;
+	}
+	return (deeper);
+}
+/**
+ * isp - function to check if a node has childs
+ * @node: a pointer to node
+ * @d: a value
+ * @level: level
+ */
+int isp(const binary_tree_t *node, int d, int level)
+{
+	if (!node)
+		return (1);
+	if (!node->left && !node->right)
+		return (d == level + 1);
+	if (!node->left || !node->right)
+		return (0);
+	return (isp(node->left, d, level + 1) && isp(node->right, d, level + 1));
 }
 
 /**
@@ -23,17 +39,11 @@ size_t binary_tree_depth(const binary_tree_t *tree)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int left = 0, right = 0;
+	int d;
 
 	if (!tree)
 		return (0);
 
-	left = binary_tree_depth(tree->left);
-	right = binary_tree_depth(tree->right);
-
-	if (left > tree || right < tree)
-		return (0);
-
-	if ((tree->left) && (tree->right))
-		return (1)
+	d = depth(tree);
+	return (isp(tree, d, 0));
 }
