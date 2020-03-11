@@ -20,6 +20,7 @@ int depth(const binary_tree_t *tree)
  * @node: a pointer to node
  * @d: a value
  * @level: level
+ * Return: a value
  */
 int isp(const binary_tree_t *node, int d, int level)
 {
@@ -31,7 +32,6 @@ int isp(const binary_tree_t *node, int d, int level)
 		return (0);
 	return (isp(node->left, d, level + 1) && isp(node->right, d, level + 1));
 }
-
 /**
  * binary_tree_is_perfect - function to check if a tree is complete
  * @tree: pointer to root
