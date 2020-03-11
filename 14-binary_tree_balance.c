@@ -1,15 +1,5 @@
 #include "binary_trees.h"
 /**
- * max - function to calculate the maximum of 2 values
- * @a:value 1
- * @b: value 2
- * Return: a value
- */
-int max(int a, int b)
-{
-	return (a >= b) ? a : b;
-}
-/**
  * binary_tree_balance - function to calculate the balance factor of a Btree
  * @tree: pointer to the root node
  * Return: 0 or 1
